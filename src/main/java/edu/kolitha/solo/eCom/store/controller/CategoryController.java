@@ -6,25 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/shop/category")
 public class CategoryController {
     private List<String> categoryList = new ArrayList<>();
 
-    @GetMapping("/shop/category/all")
+    @GetMapping("/all")
     public List<String> getCategoryList(){
         return categoryList;
     }
 
-    @PostMapping("/shop/category/add")
+    @PostMapping("/add")
     public String addCategory(@RequestBody String categoryName){
         return "Category added successfully!";
     }
 
-    @PutMapping("/shop/category/update")
+    @PutMapping("/update")
     public String updateCategory(@RequestBody String categoryName){
         return "Category updated!";
     }
 
-    @DeleteMapping("/shop/category/{id}")
+    @DeleteMapping("/{id}")
     public String removeCategory(@PathVariable Long id){
         return "Category removed!";
     }
