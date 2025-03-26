@@ -1,14 +1,14 @@
 package edu.kolitha.solo.eCom.store.model;
 
 public class Category {
-    private String id;
+    private Long id;
     private String name;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -20,7 +20,7 @@ public class Category {
         this.name = name;
     }
 
-    public Category(String id, String name) {
+    public Category(Long id, String name) {
         this.id = id;
         this.name = name;
     }

@@ -10,6 +10,7 @@ import java.util.List;
 @RequestMapping("/shop/category")
 public class CategoryController {
     private List<Category> categoryList = new ArrayList<>();
+    private Long categoryId = 0L;
 
     @GetMapping("/all")
     public List<Category> getCategoryList(){
@@ -18,13 +19,15 @@ public class CategoryController {
 
     @PostMapping("/add")
     public String addCategory(@RequestBody Category categoryName){
+        categoryId++;
+        categoryName.setId(categoryId);
         categoryList.add(categoryName);
-        return "Category added successfully!";
+        return "Category ID : "+categoryId+"  Category Name : "+ categoryName.getName() +"  -->  added successfully!";
     }
 
     @PutMapping("/update")
-    public String updateCategory(@RequestBody String categoryName){
-        return "Category updated!";
+    public String updateCategory(@RequestBody Long id, @RequestBody String categoryName){
+        return id + ": " + categoryName;
     }
 
     @DeleteMapping("/{id}")
