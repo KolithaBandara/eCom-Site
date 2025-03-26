@@ -2,15 +2,16 @@ package edu.kolitha.solo.eCom.store.controller;
 
 import edu.kolitha.solo.eCom.store.model.Category;
 import edu.kolitha.solo.eCom.store.service.CategoryServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/shop/category")
 public class CategoryController {
-    CategoryServiceImpl categoryService = new CategoryServiceImpl();
+    @Autowired
+    CategoryServiceImpl categoryService;
 
     @GetMapping("/all")
     public List<Category> getCategoryList(){

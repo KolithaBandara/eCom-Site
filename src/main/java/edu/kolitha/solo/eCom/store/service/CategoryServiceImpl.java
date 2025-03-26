@@ -1,10 +1,12 @@
 package edu.kolitha.solo.eCom.store.service;
 
 import edu.kolitha.solo.eCom.store.model.Category;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CategoryServiceImpl implements CategoryService{
     private List<Category> categoryList = new ArrayList<>();
     private Long categoryId = 0L;
