@@ -1,34 +1,36 @@
 package edu.kolitha.solo.eCom.store.controller;
 
 import edu.kolitha.solo.eCom.store.model.Category;
+import edu.kolitha.solo.eCom.store.service.CategoryServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/shop/category")
 public class CategoryController {
-    private List<Category> categoryList = new ArrayList<>();
+    @Autowired
+    CategoryServiceImpl categoryService;
 
     @GetMapping("/all")
     public List<Category> getCategoryList(){
-        return categoryList;
+        return categoryService.getCategoryList();
     }
 
     @PostMapping("/add")
     public String addCategory(@RequestBody Category categoryName){
-        categoryList.add(categoryName);
-        return "Category added successfully!";
+        return categoryService.addCategory(categoryName);
     }
 
     @PutMapping("/update")
-    public String updateCategory(@RequestBody String categoryName){
-        return "Category updated!";
+    public String updateCategory(@RequestBody Long id, @RequestBody String categoryName){
+        return categoryService.updateCategory(id, categoryName);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public String removeCategory(@PathVariable Long id){
+        categoryService.removeCategory(id);
         return "Category removed!";
     }
 }
