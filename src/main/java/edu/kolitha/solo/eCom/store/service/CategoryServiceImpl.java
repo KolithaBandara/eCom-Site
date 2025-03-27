@@ -25,14 +25,6 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public String updateCategory(Long id, String categoryName) {
-        for (Category category : categoryList){
-           boolean status = category.getId().equals(id);
-        }
-        return "";
-    }
-
-    @Override
     public String removeCategory(Long id) {
         return "";
     }
