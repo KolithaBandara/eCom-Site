@@ -9,6 +9,5 @@ import java.util.List;
 public interface CategoryService {
     List<Category> getCategoryList();
     String addCategory(@RequestBody Category categoryName);
-    String updateCategory(@RequestBody Long id, @RequestBody String categoryName);
     String removeCategory(@PathVariable Long id);
 }
